@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var users;
 var connection = require('../config/connection')
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -23,6 +24,18 @@ router.get('/', function (req, res, next) {
   connection.query("INSERT INTO user SET ?",userdata, function (err, result) {
     if (err) throw err
     res.redirect('/');
+
+  })
+
+ });
+
+ router.post('/search', function (req, res, next) {
+  
+
+  
+  connection.query('SELECT * from user where UserName like "%'+req.body.search+'%"', function (err, rows) {
+    if (err) throw err
+    res.render('index', { users: rows });
 
   })
 
