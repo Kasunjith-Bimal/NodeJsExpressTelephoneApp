@@ -4,7 +4,7 @@
 
 `git clone https://github.com/Kasunjith-Bimal/NodeJsExpressTelephoneApp.git # or clone your own fork1`
 `cd NodeJsExpressTelephoneApp`
-`npm install`
+
 
 
 #use Mysql database 
@@ -23,5 +23,8 @@
 #if use http://localhost/phpmyadmin/ 
 #change node_module/mysql/lib/ConnectionConfig file section host
 ` this.host               = options.host || 'localhost';`
+# install npm
+`npm install`
+
 # run using 
 `npm start`
