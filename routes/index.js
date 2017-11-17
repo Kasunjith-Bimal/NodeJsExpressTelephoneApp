@@ -9,5 +9,22 @@ router.get('/', function (req, res, next) {
 
   })
  });
+ router.post('/addUser', function (req, res, next) {
+  
+  const userdata ={
+    UserName:req.body.UserName,
+    UserAddress:req.body.UserAddress,
+    UserEmail:req.body.UserEmail,
+    UserTelephoneNumber:req.body.UserTelephoneNumber,
+  }
+  
+  console.log(userdata)
 
+  connection.query("INSERT INTO user SET ?",userdata, function (err, result) {
+    if (err) throw err
+    res.redirect('/');
+
+  })
+
+ });
 module.exports = router;
