@@ -40,4 +40,18 @@ router.get('/', function (req, res, next) {
   })
 
  });
+
+
+ router.get('/delete/:UserId', function (req, res, next) {
+  
+
+  var UserreqId = req.params.UserId;
+
+  connection.query("Delete from user where UserId =?",UserreqId, function (err, rows) {
+    if (err) throw err
+    res.redirect('/');
+
+  })
+
+ });
 module.exports = router;
