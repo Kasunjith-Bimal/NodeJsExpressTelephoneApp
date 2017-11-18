@@ -91,7 +91,7 @@
                         <td>{{this.UserEmail}}</td>
                         <td>{{this.UserAddress }}</td>
                         <td>{{this.UserTelephoneNumber }} </td>
-                        <td><input type="button" value="Edit" class="btn btn-primary"> | <a href="/delete/{{this.UserId}}"> <input type="button" value="Delete" class="btn btn-danger"> </a> </td>
+                        <td><a href="/edit/{{this.UserId}}"><input type="button" value="Edit" class="btn btn-primary"></a> | <a href="/delete/{{this.UserId}}"> <input type="button" value="Delete" class="btn btn-danger"> </a> </td>
                     </tr>
                     {{/each}}
                 </tbody>

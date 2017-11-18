@@ -54,4 +54,37 @@ router.get('/', function (req, res, next) {
   })
 
  });
+ router.get('/edit/:UserId', function (req, res, next) {
+  
+
+  var UserreqId = req.params.UserId;
+  connection.query('select * from user where UserId = ?',UserreqId, function (err, rows) {
+    if (err) throw err
+    res.render('edit', { usersdata: rows });
+
+  })
+  
+
+ });
+
+ router.post('/Update/:UserId', function (req, res, next) {
+  
+
+  var UserreqId = req.params.UserId;
+  const userdata ={
+    UserName:req.body.UserName,
+    UserAddress:req.body.UserAddress,
+    UserEmail:req.body.UserEmail,
+    UserTelephoneNumber:req.body.UserTelephoneNumber,
+  }
+  console.log(userdata);
+ 
+  connection.query('Update user SET UserName=?,UserAddress=?,UserEmail=?,UserTelephoneNumber=? where UserId=?',[userdata.UserName,userdata.UserAddress,userdata.UserEmail,userdata.UserTelephoneNumber,UserreqId], function (err, response) {
+    if (err) throw err
+    res.redirect('../../');
+
+  })
+  
+
+ });
 module.exports = router;
